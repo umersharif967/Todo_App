@@ -111,7 +111,7 @@ function App() {
                       onClick={() => editOnClick(index)}
                       className="border-0"
                     >
-                      <i className="bi bi-pencil-square ms-3"></i>
+                      <i className="bi bi-pencil-square"></i>
                     </button>
                   </td>
                   <td>
