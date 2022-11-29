@@ -3,57 +3,130 @@ import "./App.css";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
 function App() {
-  const [text, setText] = useState("");
-  const [text2, setText2] = useState("");
+  const [text, setText] = useState({
+    title: "",
+    body: "",
+  });
+  const [todo, setTodo] = useState([]);
+  const [indexxx, setIndexxx] = useState('');
+  const [change, setChange] = useState(false);
 
-  const [title, setTitle] = useState([]);
-  const [body, setBody] = useState([]);
 
-  const addTitle = (event) => {
-    setText(event.target.value);
+  const handleChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setText({ ...text, [name]: value });
   };
-  const addBody = (event) => {
-    setText2(event.target.value);
+  const addText = (e) => {
+    e.preventDefault();
+    if (text.title === "" || text.body === "") {
+      alert("Please enter a title and body of Todo");
+    } else {
+      setTodo([...todo, text]);
+      setText({ title: "", body: "" });
+    }
   };
-  const addText = () => {
-    setTitle([...title, text]);
-    setBody([...body, text2]);
-    setText("");
-    setText2("");
+  const editText=()=>{
+    const edits = [...todo]
+    edits.splice(indexxx,1,text);
+    setTodo(edits);
+    setText({ title: "", body: "" });
+    setChange(false);
+  }
+  const deleteOnClick = (index) => {
+    const deleted = [...todo];
+    deleted.splice(index,1);
+    setTodo(deleted);
   };
+  const editOnClick = (index)=>{
+    const edited = todo.at(index);
+    setText(edited);
+    setIndexxx(index);
+    setChange(true);
+  }
   return (
     <>
       <h1 className="text-center text-danger">Updated ToDo</h1>
-      <InputGroup className=" w-25 m-auto" type="text">
+      <div className=" w-25 m-auto" type="text">
         <Form.Control
+          className="mt-3"
           placeholder="Enter Title here..."
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          name="text"
-          value={text}
-          onChange={addTitle}
+          name="title"
+          value={text.title}
+          onChange={handleChange}
         />
         <Form.Control
+          className="mt-3"
           placeholder="Enter Body here..."
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          name="text"
-          value={text2}
-          onChange={addBody}
+          name="body"
+          value={text.body}
+          onChange={handleChange}
         />
-        <Button
-          variant="outline-secondary text-light btn-dark text-capitalize"
-          id="button-addon2"
-          onClick={addText}
-        >
-          save
-        </Button>
-      </InputGroup>
-      <div className="d-flex text-center justify-content-around">
-        <p className="text-center mt-5 text-black">Title: {title}</p>
-        <p className="text-center mt-5 text-black ">Body: {body}</p>
+        <div>
+          {change ? (<Button
+            variant="outline-secondary text-light btn-dark mt-2 text-capitalize"
+            id="button-addon2"
+            onClick={editText}
+          >
+            Edit
+          </Button>)
+           : (<Button
+           variant="outline-secondary text-light btn-dark mt-2 text-capitalize"
+           id="button-addon2"
+           onClick={addText}
+         >
+           save
+         </Button> )
+          
+          }
+        </div>
+        {
+          <table className="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title: </th>
+                <th>Body:</th>
+                <th>Edit </th>
+                <th>Delete </th>
+              </tr>
+            </thead>
+            <tbody>
+              {console.log(todo)}
+              {todo.map((elem, index) => (
+                <tr key={index}>
+                  <th>{index + 1}</th>
+                  <td>
+                    {elem.title}
+                  </td>
+                  <td>{elem.body}</td>
+                  <td><button
+                      onClick={() => editOnClick(index)}
+                      className="border-0"
+                    >
+                      <i className="bi bi-pencil-square ms-3"></i>
+                    </button>
+                    </td>
+                    <td><button
+                      onClick={() => deleteOnClick(index)}
+                      className="border-0"
+                    >
+                      <i className="bi bi-x-square"></i>
+                    </button>
+                    </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        }
       </div>
     </>
   );
