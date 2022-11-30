@@ -12,7 +12,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 function Apps() {
   const [text, setText] = useState({
     title: "",
-    body: "",
+    // body: "",
   });
   const [todo, setTodo] = useState([]);
   const [indexxx, setIndexxx] = useState("");
@@ -39,7 +39,7 @@ function Apps() {
   const addText = (e) => {
     e.preventDefault();
     if (text.title === "" || text.body === "") {
-      alert("Please enter a title and body of Todo");
+      alert("Please enter a title ");
     } else {
       setTodo([...todo, text]);
       setText({ title: "", body: "" });
@@ -115,7 +115,7 @@ function Apps() {
               </tr>
             </thead>
             <tbody>
-              {console.log(todo)}
+              {/* {console.log(todo)} */}
               {todo.map((elem, index) => (
                 <tr key={index}>
                   <th>{index + 1}</th>
