@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
-function DeleteApi() {
+
+export function MainPage() {
+
   const [text, setText] = useState({
     title: "",
   });
@@ -49,11 +47,10 @@ function DeleteApi() {
     setChange(true);
   };
   return (
-    <>
-      <h1 className="text-center text-danger">Updated ToDo</h1>
-      <div className=" w-25 m-auto" type="text">
+    <div className="container">
+      <h1 className="text-center text-danger mt-3">Updated ToDo</h1>
+      <div className="container w-25 m-auto mt-5" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <Form.Control
-          className="mt-3"
           placeholder="Enter Title here..."
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
@@ -61,17 +58,17 @@ function DeleteApi() {
           value={text.title}
           onChange={handleChange}
         />
-        <div>
+        <div className="ms-2">
           {change ? (
             <Button
-              variant="outline-secondary text-light btn-dark mt-2 text-capitalize"
+              variant="outline-secondary text-light btn-dark text-capitalize"
               id="button-addon2"
               onClick={editText}>
               Edit
             </Button>
           ) : (
             <Button
-              variant="outline-secondary text-light btn-dark mt-2 text-capitalize"
+              variant="outline-secondary text-light btn-dark text-capitalize"
               id="button-addon2"
               onClick={addText}
             >
@@ -79,6 +76,8 @@ function DeleteApi() {
             </Button>
           )}
         </div>
+      </div>
+      <div className="container mt-5">
         {todo.length > 0 && (
           <table className="table">
             <thead>
@@ -117,8 +116,7 @@ function DeleteApi() {
           </table>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
-export default DeleteApi;
