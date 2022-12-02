@@ -15,7 +15,7 @@ function Apps() {
     // body: "",
   });
   const [todo, setTodo] = useState([]);
-  const [indexxx, setIndexxx] = useState("");
+  const [indexx, setIndexx] = useState("");
   const [change, setChange] = useState(false);
 
   useEffect(() => {
@@ -29,13 +29,15 @@ function Apps() {
     const fetchData = async () => {
         const response = await fetch('https://jsonplaceholder.typicode.com/todos/')
         const res = await response.json()
+        // const response = await fetch(`.`)
         setTodo(res);
     }
   const handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    setText({ ...text, [name]: value });
+    setText({ text, [name]: value });
   };
+
   const addText = (e) => {
     e.preventDefault();
     if (text.title === "" || text.body === "") {
@@ -47,20 +49,25 @@ function Apps() {
   };
   const editText = () => {
     const edits = [...todo];
-    edits.splice(indexxx, 1, text);
+    edits.splice(indexx, 1, text);
     setTodo(edits);
     setText({ title: "", body: "" });
     setChange(false);
   };
-  const deleteOnClick = (index) => {
-    const deleted = [...todo];
-    deleted.splice(index, 1);
-    setTodo(deleted);
+  const deleteOnClick = async (index) => {
+    // await index.preventDefault();
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${index}`, {
+            method: "delete"
+          });
+    let resp = response.json()
+    //  res = [...todo];
+    // res.splice(index, 1);
+    setTodo(resp);
   };
   const editOnClick = (index) => {
     const edited = todo.at(index);
     setText(edited);
-    setIndexxx(index);
+    setIndexx(index);
     setChange(true);
   };
   return (
