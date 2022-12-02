@@ -6,40 +6,21 @@ import Form from "react-bootstrap/Form";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import axios from "axios";
+// import data from "./Db.json";
 
 
 
-function Apps() {
+function DeleteApi() {
   const [text, setText] = useState({
     title: "",
     // body: "",
   });
   const [todo, setTodo] = useState([]);
-  const [indexx, setIndexx] = useState("");
+  const [indexxx, setIndexxx] = useState("");
   const [change, setChange] = useState(false);
 
-  useEffect(() => {
-        try {
-            fetchData();
-        } catch (error) {
-            console.log(error);
-        }
-      }, []);
-
-    const fetchData = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/')
-        const res = await response.json()
-        setTodo(res);
-    }
-    const deleteOnClick = async (index) => {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${index}`, {
-              method: "delete"
-            });
-      let resp = response.json()
-      //  res = [...todo];
-      // res.splice(index, 1);
-      setTodo(resp);
-    };
+ 
   const handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -57,16 +38,20 @@ function Apps() {
   };
   const editText = () => {
     const edits = [...todo];
-    edits.splice(indexx, 1, text);
+    edits.splice(indexxx, 1, text);
     setTodo(edits);
     setText({ title: "", body: "" });
     setChange(false);
   };
-  
+  const deleteOnClick = (index) => {
+    const deleted = [...todo];
+    deleted.splice(index, 1);
+    setTodo(deleted);
+  };
   const editOnClick = (index) => {
     const edited = todo.at(index);
     setText(edited);
-    setIndexx(index);
+    setIndexxx(index);
     setChange(true);
   };
   return (
@@ -153,4 +138,4 @@ function Apps() {
   );
 }
 
-export default Apps;
+export default DeleteApi;
