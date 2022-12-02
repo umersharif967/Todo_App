@@ -49,6 +49,8 @@ export function MainPage() {
   return (
     <div className="container">
       <h1 className="text-center text-danger mt-3">Updated ToDo</h1>
+      <h1 className="text-center text-danger mt-3">Make your code clean and use relavent variable names</h1>
+      <h1 className="text-center text-danger mt-3">follow this type of structure</h1>
       <div className="container w-25 m-auto mt-5" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <Form.Control
           placeholder="Enter Title here..."
