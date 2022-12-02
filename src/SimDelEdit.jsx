@@ -1,26 +1,20 @@
-import React, { useState,useEffect } from "react";
-import "./App.css";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import axios from "axios";
-// import data from "./Db.json";
-
-
 
 function DeleteApi() {
   const [text, setText] = useState({
     title: "",
-    // body: "",
   });
   const [todo, setTodo] = useState([]);
   const [indexxx, setIndexxx] = useState("");
   const [change, setChange] = useState(false);
 
- 
+
   const handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -67,15 +61,6 @@ function DeleteApi() {
           value={text.title}
           onChange={handleChange}
         />
-        {/* <Form.Control
-          className="mt-3"
-          placeholder="Enter Body here..."
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          name="body"
-          value={text.body}
-          onChange={handleChange}
-        /> */}
         <div>
           {change ? (
             <Button
@@ -94,7 +79,7 @@ function DeleteApi() {
             </Button>
           )}
         </div>
-        {todo.length > 0 &&(
+        {todo.length > 0 && (
           <table className="table">
             <thead>
               <tr>
@@ -106,12 +91,10 @@ function DeleteApi() {
               </tr>
             </thead>
             <tbody>
-              {/* {console.log(todo)} */}
               {todo.map((elem, index) => (
                 <tr key={index}>
                   <th>{index + 1}</th>
                   <td>{elem.title}</td>
-                  {/* <td>{elem.body}</td> */}
                   <td>
                     <button
                       onClick={() => editOnClick(index)}
