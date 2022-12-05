@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-
-
-export function MainPage() {
+import React, {useState } from "react";
+import Inputfield from"./Inputfield";
+import TodoTable from"./TodoTable";
+const MainPage=()=> {
 
   const [text, setText] = useState({
     title: "",
@@ -49,76 +47,13 @@ export function MainPage() {
   return (
     <div className="container">
       <h1 className="text-center text-danger mt-3">Updated ToDo</h1>
-      {/* <h1 className="text-center text-danger mt-3">Make your code clean and use relavent variable names</h1>
-      <h1 className="text-center text-danger mt-3">follow this type of structure</h1> */}
-      <div className="container w-25 m-auto mt-5" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        <Form.Control
-          placeholder="Enter Title here..."
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          name="title"
-          value={text.title}
-          onChange={handleChange}
-        />
-        <div className="ms-2">
-          {change ? (
-            <Button
-              variant="outline-secondary text-light btn-dark text-capitalize"
-              id="button-addon2"
-              onClick={editText}>
-              Edit
-            </Button>
-          ) : (
-            <Button
-              variant="outline-secondary text-light btn-dark text-capitalize"
-              id="button-addon2"
-              onClick={addText}
-            >
-              save
-            </Button>
-          )}
-        </div>
-      </div>
+      <Inputfield  handleChange={handleChange} addText={addText} editText={editText} text={text} change={change} />
       <div className="container mt-5">
         {todo.length > 0 && (
-          <table className="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Title: </th>
-                {/* <th>Body:</th> */}
-                <th>Edit </th>
-                <th>Delete </th>
-              </tr>
-            </thead>
-            <tbody>
-              {todo.map((elem, index) => (
-                <tr key={index}>
-                  <th>{index + 1}</th>
-                  <td>{elem.title}</td>
-                  <td>
-                    <button
-                      onClick={() => editOnClick(index)}
-                      className="border-0"
-                    >
-                      <i className="bi bi-pencil-square"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      onClick={() => deleteOnClick(index)}
-                      className="border-0"
-                    >
-                      <i className="bi bi-x-square"></i>
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <TodoTable deleteOnClick={deleteOnClick} editOnClick={editOnClick} todo={todo}/>
         )}
       </div>
     </div>
   );
 }
-
+export default MainPage;
