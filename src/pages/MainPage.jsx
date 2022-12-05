@@ -1,7 +1,7 @@
-import React, {useState } from "react";
-import Inputfield from"./Inputfield";
-import TodoTable from"./TodoTable";
-const MainPage=()=> {
+import React, { useState } from "react";
+import Inputfield from "../components/Inputfield";
+import TodoTable from "../components/TodoTable";
+const MainPage = () => {
 
   const [text, setText] = useState({
     title: "",
@@ -47,10 +47,10 @@ const MainPage=()=> {
   return (
     <div className="container">
       <h1 className="text-center text-danger mt-3">Updated ToDo</h1>
-      <Inputfield  handleChange={handleChange} addText={addText} editText={editText} text={text} change={change} />
+      <Inputfield handleChange={handleChange} addText={addText} editText={editText} text={text} change={change} />
       <div className="container mt-5">
         {todo.length > 0 && (
-          <TodoTable deleteOnClick={deleteOnClick} editOnClick={editOnClick} todo={todo}/>
+          <TodoTable deleteOnClick={deleteOnClick} editOnClick={editOnClick} todo={todo} />
         )}
       </div>
     </div>
