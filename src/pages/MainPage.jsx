@@ -46,7 +46,7 @@ const MainPage = () => {
   };
   return (
     <div className="container">
-      <h1 className="text-center text-danger mt-3">Updated ToDo</h1>
+      <h1 className="text-center text-danger mt-3"> ToDo</h1>
       <Inputfield handleChange={handleChange} addText={addText} editText={editText} text={text} change={change} />
       <div className="container mt-5">
         {todo.length > 0 && (
