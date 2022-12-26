@@ -5,7 +5,7 @@ const Reducer = (state = initialData, action)=>{
     switch (action.type) {
       case "ActionTypeAddtodo":
         {
-            const(action,)
+            const (action,data)=action.payload;
         }
     }
 }
