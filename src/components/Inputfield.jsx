@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ACTION_ADD_TODO} from "../Redux/Actions/TodoAction";
 
 const Inputfield = () => {
 
   const [text, setText] = useState();
   const dispatch = useDispatch();
-  const setEdit = useSelector(()=>{
-    
-  })
+  
   
   return (
     <>
