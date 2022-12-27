@@ -7,17 +7,17 @@ const TodoReducers = (state = initialData, action) => {
       const { id, data } = action.payload;
       return {
         ...state,
-        data: [
+        list: [
           ...state.list,
           {
-            id,
-            data,
-          },
-        ],
+            id:id,
+            data:data,
+          }
+        ]
       };
-    case "ACTIONDELTODO":
-      return {
-      };
+    // case "ACTIONDELTODO":
+    //   return {
+    //   };
     default:
       return state;
   }

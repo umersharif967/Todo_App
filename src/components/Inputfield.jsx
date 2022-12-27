@@ -11,7 +11,7 @@ const Inputfield = () => {
   return (
     <>
       <div
-        className="container w-50 m-auto mt-5"
+        className="container w-25 m-auto mt-5"
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
         <Form.Control
@@ -22,16 +22,10 @@ const Inputfield = () => {
         />
         <div className="ms-2 d-flex">
           <Button
-            variant="outline-secondary text-light btn-dark text-capitalize"
+            // variant="outline-secondary text-light btn-dark text-capitalize"
+            className="outline-secondary text-light btn-dark text-capitalize"
             id="button-addon2"
-            onClick={() => dispatch(ACTION_ADD_TODO(text))}
-          >
-            Edit
-          </Button>
-          <Button
-            variant="outline-secondary text-light btn-dark text-capitalize"
-            id="button-addon2"
-            onClick={() => dispatch(ACTION_ADD_TODO(text))}
+            onClick={() => dispatch(ACTION_ADD_TODO(text), setText(""))}
           >
             save
           </Button>
