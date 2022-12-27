@@ -15,9 +15,18 @@ const TodoReducers = (state = initialData, action) => {
           }
         ]
       };
-    // case "ACTIONDELTODO":
-    //   return {
-    //   };
+    case "ACTIONDELTODO":
+      const {index} = action.payload;
+      state.list.splice(index, 1);
+      return {
+        ...state, 
+        list:[ ...state.list]
+    };
+    case "ACTIONEDITTODO":
+      // const editTodo = state.list.splice(index, 0);
+      return state.list;
+
+
     default:
       return state;
   }
