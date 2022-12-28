@@ -5,16 +5,17 @@ import { useDispatch } from "react-redux";
 import { ACTION_ADD_TODO} from "../Redux/Actions/TodoAction";
 
 const Inputfield = () => {
-
   const [text, setText] = useState();
   const dispatch = useDispatch();
-  
-  
   return (
     <>
       <div
         className="container w-25 m-auto mt-5"
-        style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        }}
       >
         <Form.Control
           placeholder="Enter Title here..."
@@ -24,7 +25,6 @@ const Inputfield = () => {
         />
         <div className="ms-2 d-flex">
           <Button
-            // variant="outline-secondary text-light btn-dark text-capitalize"
             className="outline-secondary text-light btn-dark text-capitalize"
             id="button-addon2"
             onClick={() => dispatch(ACTION_ADD_TODO(text), setText(""))}
@@ -35,6 +35,6 @@ const Inputfield = () => {
       </div>
     </>
   );
-}
+};
 
 export default Inputfield;

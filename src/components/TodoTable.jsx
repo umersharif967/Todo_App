@@ -1,14 +1,17 @@
 import React from 'react'
-import { ACTION_DEL_TODO, HANDLE_EDIT_TODO } from "../Redux/Actions/TodoAction";
+import { ACTION_DEL_TODO } from "../Redux/Actions/TodoAction";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const TodoTable = () => {
-  
-  const lists = useSelector((event)=>{
+  // const [dataIndex, setDataIndex] = useState();
+  const lists = useSelector((event) => {
     return event.TodoReducers.list;
   });
+  const handleEdit = (index) => {
+    return
+  };
   const dispatch = useDispatch();
   return (
     <>
@@ -25,7 +28,6 @@ const TodoTable = () => {
             </thead>
             <tbody>
               {lists.map((list, index) => {
-                console.log(lists);
                 return (
                   <tr key={list.id}>
                     <td>{index}</td>
@@ -33,7 +35,7 @@ const TodoTable = () => {
                     <td>
                       <button
                         className="border-0 bg-light"
-                        onClick={()=> dispatch(HANDLE_EDIT_TODO(index))}
+                        onClick={ handleEdit(index)}
                       >
                         <EditIcon />
                       </button>
@@ -55,6 +57,5 @@ const TodoTable = () => {
       </div>
     </>
   );
-}
-
+};
 export default TodoTable

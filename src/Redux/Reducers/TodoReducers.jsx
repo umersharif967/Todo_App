@@ -22,14 +22,6 @@ const TodoReducers = (state = initialData, action) => {
         ...state,
         list: [...state.list],
       };}
-    case "HANDLEEDITTODO":
-      {const { index } = action.payload;
-      const editTodo = state.list.slice(index);
-      return {
-        ...state,
-        list: [{editTodo}],
-        
-      };}
 
     default:
       return state;

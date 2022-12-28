@@ -16,11 +16,3 @@ export const ACTION_DEL_TODO = (index) => {
     },
   };
 };
-export const HANDLE_EDIT_TODO = (index) => {
-  return {
-    type: "HANDLEEDITTODO",
-    payload: {
-      index: index,
-    },
-  };
-};

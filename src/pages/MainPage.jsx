@@ -1,15 +1,17 @@
 import React from "react";
 import Inputfield from "../components/Inputfield";
 import TodoTable from "../components/TodoTable";
-const MainPage = () => {
+// import { useSelector } from "react-redux";
 
- 
+
+const MainPage = () => {
+   
   return (
     <div className="container">
       <h1 className="text-center text-danger mt-3"> Todo</h1>
-        <Inputfield />
+      <Inputfield  />
       <div className="container mt-5">
-        <TodoTable />
+        <TodoTable  />
       </div>
     </div>
   );
