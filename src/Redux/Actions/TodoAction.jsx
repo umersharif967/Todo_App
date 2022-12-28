@@ -16,3 +16,12 @@ export const ACTION_DEL_TODO = (index) => {
     },
   };
 };
+export const ACTION_EDIT_TODO = (index,data) => {
+  return {
+    type: "ACTIONEDITTODO",
+    payload: {
+      index: index,
+      // data: data
+    },
+  };
+};

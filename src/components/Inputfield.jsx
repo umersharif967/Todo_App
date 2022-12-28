@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { ACTION_ADD_TODO} from "../Redux/Actions/TodoAction";
 
-const Inputfield = () => {
+const Inputfield = ({ ACTION_EDIT_TODO }) => {
   const [text, setText] = useState();
   const dispatch = useDispatch();
   return (

@@ -5,13 +5,15 @@ import TodoTable from "../components/TodoTable";
 
 
 const MainPage = () => {
-   
+   const ACTION_EDIT_TODO = ()=>{
+    return
+   }
   return (
     <div className="container">
       <h1 className="text-center text-danger mt-3"> Todo</h1>
-      <Inputfield  />
+      <Inputfield ACTION_EDIT_TODO={ACTION_EDIT_TODO()} />
       <div className="container mt-5">
-        <TodoTable  />
+        <TodoTable ACTION_EDIT_TODO={ACTION_EDIT_TODO()} />
       </div>
     </div>
   );
