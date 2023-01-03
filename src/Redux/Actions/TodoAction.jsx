@@ -16,12 +16,12 @@ export const ACTION_DEL_TODO = (index) => {
     },
   };
 };
-export const ACTION_EDIT_TODO = (index,data) => {
+export const load_Back_To_Input_field = (index,data) => {
   return {
-    type: "ACTIONEDITTODO",
+    type: "loadBackToInputfield",
     payload: {
-      index: index,
-      // data: data
+      index:index,
+      data:data
     },
   };
 };

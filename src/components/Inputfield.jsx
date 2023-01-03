@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { ACTION_ADD_TODO} from "../Redux/Actions/TodoAction";
 
-const Inputfield = ({ ACTION_EDIT_TODO }) => {
+const Inputfield = () => {
   const [text, setText] = useState();
   const dispatch = useDispatch();
   return (
@@ -17,12 +17,12 @@ const Inputfield = ({ ACTION_EDIT_TODO }) => {
           alignItems: "center",
         }}
       >
-        <Form.Control
-          placeholder="Enter Title here..."
-          name="title"
-          onChange={(e) => setText(e.target.value)}
-          value={text}
-        />
+          <Form.Control
+            placeholder="Enter Title here..."
+            name="title"
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          />
         <div className="ms-2 d-flex">
           <Button
             className="outline-secondary text-light btn-dark text-capitalize"

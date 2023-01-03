@@ -1,10 +1,13 @@
 import React from 'react'
-import { ACTION_DEL_TODO } from "../Redux/Actions/TodoAction";
+import {
+  ACTION_DEL_TODO,
+  load_Back_To_Input_field
+} from "../Redux/Actions/TodoAction";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const TodoTable = ({ ACTION_EDIT_TODO }) => {
+const TodoTable = () => {
   const lists = useSelector((event) => {
     return event.TodoReducers.list;
   });
@@ -32,7 +35,7 @@ const TodoTable = ({ ACTION_EDIT_TODO }) => {
                     <td>
                       <button
                         className="border-0 bg-light"
-                        onClick={() =>(ACTION_EDIT_TODO(index))}
+                        onClick={() => dispatch(load_Back_To_Input_field(index,list.data))}
                       >
                         <EditIcon />
                       </button>
