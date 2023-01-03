@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
-import { ACTION_ADD_TODO} from "../Redux/Actions/TodoAction";
+import { ACTION_ADD_TODO, ACTION_EDIT_TODO } from "../Redux/Actions/TodoAction";
 
-const Inputfield = () => {
-  const [text, setText] = useState();
+const Inputfield = ({
+  text,
+  setText,
+  edit,
+  setEdit,
+  indexOfEditable,
+}) => {
   const dispatch = useDispatch();
   return (
     <>
@@ -17,20 +22,36 @@ const Inputfield = () => {
           alignItems: "center",
         }}
       >
-          <Form.Control
-            placeholder="Enter Title here..."
-            name="title"
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-          />
+        <Form.Control
+          placeholder="Enter Title here..."
+          name="title"
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+        />
         <div className="ms-2 d-flex">
-          <Button
-            className="outline-secondary text-light btn-dark text-capitalize"
-            id="button-addon2"
-            onClick={() => dispatch(ACTION_ADD_TODO(text), setText(""))}
-          >
-            save
-          </Button>
+          {edit ? (
+            <Button
+              className="outline-secondary text-light btn-dark text-capitalize"
+              id="button-addon2"
+              onClick={() =>
+                dispatch(
+                  ACTION_EDIT_TODO(text, indexOfEditable),
+                  setText(""),
+                  setEdit(false)
+                )
+              }
+            >
+              edit
+            </Button>
+          ) : (
+            <Button
+              className="outline-secondary text-light btn-dark text-capitalize"
+              id="button-addon2"
+              onClick={() => dispatch(ACTION_ADD_TODO(text), setText(""))}
+            >
+              save
+            </Button>
+          )}
         </div>
       </div>
     </>

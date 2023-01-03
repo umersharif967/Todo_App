@@ -23,11 +23,13 @@ const TodoReducers = (state = initialData, action) => {
         list: [...state.list],
       };
     }
-    case "loadBackToInputfield":{
-      const { index, data } = action.payload;
+    case "ACTIONEDITTODO":{
+      const { data, indexOfEditable } = action.payload;
+      state.list.splice(indexOfEditable, 1,data);
       return {
-         list:[state.list.slice(index,index+1)]
-    }
+        ...state,
+        list: [...state.list],
+      };
     }
 
     default:
