@@ -9,7 +9,7 @@ const Inputfield = ({
   setText,
   edit,
   setEdit,
-  indexOfEditable,
+  indexOfEditable
 }) => {
   const dispatch = useDispatch();
   return (

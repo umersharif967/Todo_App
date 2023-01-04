@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const TodoTable = ({ setText, setEdit, setIndexOfEditable }) => {
+const TodoTable = ({ setText, setEdit,setIndexOfEditable }) => {
   const lists = useSelector((event) => {
     return event.TodoReducers.list;
   });
   const dispatch = useDispatch();
-  const returnValueInInput = (e) => {
-    return setText(e), setEdit(true);
+  const returnValueInInput = (e,index) => {
+    return setText(e), setEdit(true), setIndexOfEditable(index);
   };
   return (
     <>
@@ -38,8 +38,7 @@ const TodoTable = ({ setText, setEdit, setIndexOfEditable }) => {
                       <button
                         className="border-0 bg-light"
                         onClick={
-                          (() => returnValueInInput(list.data, index),
-                          setIndexOfEditable(index))
+                          (() => returnValueInInput(list.data, index))
                         }
                       >
                         <EditIcon />

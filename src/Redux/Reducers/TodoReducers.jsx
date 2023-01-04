@@ -3,8 +3,8 @@ const initialData = {
 };
 const TodoReducers = (state = initialData, action) => {
   switch (action.type) {
-    case "ACTIONADDTODO":
-     { const { id, data } = action.payload;
+    case "ACTIONADDTODO": {
+      const { id, data } = action.payload;
       return {
         ...state,
         list: [
@@ -14,7 +14,8 @@ const TodoReducers = (state = initialData, action) => {
             data: data,
           },
         ],
-      };}
+      };
+    }
     case "ACTIONDELTODO": {
       const { index } = action.payload;
       state.list.splice(index, 1);
@@ -23,12 +24,17 @@ const TodoReducers = (state = initialData, action) => {
         list: [...state.list],
       };
     }
-    case "ACTIONEDITTODO":{
-      const { data, indexOfEditable } = action.payload;
-      state.list.splice(indexOfEditable, 1,data);
+    case "ACTIONEDITTODO": {
+      const [ [data], indexOfEditable] = action.payload;
+      state.list.splice(indexOfEditable, 1, data);
       return {
         ...state,
-        list: [...state.list],
+        list: [
+          ...state.list,
+          {
+            data: data,
+          },
+        ],
       };
     }
 

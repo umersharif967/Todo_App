@@ -16,7 +16,7 @@ const MainPage = () => {
         setText={setText}
         setEdit={setEdit}
         edit={edit}
-        // setIndexOfEditable={setIndexOfEditable}
+        setIndexOfEditable={setIndexOfEditable}
         indexOfEditable={indexOfEditable}
       />
       <div className="container mt-4">
