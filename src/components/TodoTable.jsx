@@ -29,7 +29,7 @@ const TodoTable = ({ setText, setEdit,setIndexOfEditable }) => {
             </thead>
             <tbody>
               {lists.map((list, index) => {
-                // console.log(list.data);
+                console.log(lists);
                 return (
                   <tr key={list.id}>
                     <td>{index}</td>

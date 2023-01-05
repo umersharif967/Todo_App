@@ -25,11 +25,12 @@ const TodoReducers = (state = initialData, action) => {
       };
     }
     case "ACTIONEDITTODO": {
-      const [ [data], indexOfEditable] = action.payload;
-      state.list.splice(indexOfEditable, 1, data);
+      const [data, indexOfEditable] = action.payload;
+      state.list.splice(indexOfEditable, 0, data);
       return {
         ...state,
-        list: [
+        list:
+         [
           ...state.list,
           {
             data: data,

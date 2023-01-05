@@ -16,7 +16,7 @@ export const ACTION_DEL_TODO = (index) => {
     },
   };
 };
-export const ACTION_EDIT_TODO = (data,indexOfEditable) => {
+export const ACTION_EDIT_TODO = ( data, indexOfEditable ) => {
   return {
     type: "ACTIONEDITTODO",
     payload: {
