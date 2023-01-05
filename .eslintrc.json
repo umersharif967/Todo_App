@@ -3,14 +3,16 @@
     "browser": true,
     "es2021": true
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -26,9 +28,18 @@
       "error",
       "single"
     ],
+    "indent": [
+      "error",
+      "tab"
+    ],
     "no-console": "warn",
     "no-debugger": "warn",
     "react/prop-types": 0,
-    "no-unused-vars": "warn"
+    "no-mixed-spaces-and-tabs": 0,
+    "no-unused-vars": "warn",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ]
   }
 }
