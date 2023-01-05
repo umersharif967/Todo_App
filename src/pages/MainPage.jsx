@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Inputfield from "../components/Inputfield";
-import TodoTable from "../components/TodoTable";
+import React, { useState } from 'react';
+import Inputfield from '../components/Inputfield';
+import TodoTable from '../components/TodoTable';
 const MainPage = () => {
 
   const [text, setText] = useState({
-    title: "",
+    title: '',
   });
   const [todo, setTodo] = useState([]);
-  const [indexxx, setIndexxx] = useState("");
+  const [indexxx, setIndexxx] = useState('');
   const [change, setChange] = useState(false);
 
 
@@ -19,18 +19,18 @@ const MainPage = () => {
 
   const addText = (e) => {
     e.preventDefault();
-    if (text.title === "" || text.body === "") {
-      alert("Please enter a title ");
+    if (text.title === '' || text.body === '') {
+      alert('Please enter a title ');
     } else {
       setTodo([...todo, text]);
-      setText({ title: "", body: "" });
+      setText({ title: '', body: '' });
     }
   };
   const editText = () => {
     const edits = [...todo];
     edits.splice(indexxx, 1, text);
     setTodo(edits);
-    setText({ title: "", body: "" });
+    setText({ title: '', body: '' });
     setChange(false);
   };
   const deleteOnClick = (index) => {
@@ -55,5 +55,5 @@ const MainPage = () => {
       </div>
     </div>
   );
-}
+};
 export default MainPage;

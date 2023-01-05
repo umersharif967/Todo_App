@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 const TodoTable = (props) => {
   return (
     <>
-        <div className="container mt-5">
+      <div className="container mt-5">
         {props.todo.length > 0 && (
           <table className="table">
             <thead>
@@ -42,7 +42,7 @@ const TodoTable = (props) => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default TodoTable
+export default TodoTable;
