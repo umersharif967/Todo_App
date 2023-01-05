@@ -12,7 +12,7 @@ const TodoTable = ({ setText, setEdit,setIndexOfEditable }) => {
   });
   const dispatch = useDispatch();
   const returnValueInInput = (e,index) => {
-    return setText(e), setEdit(true), setIndexOfEditable(index);
+    return (setText(e), setEdit(true), setIndexOfEditable(index));
   };
   return (
     <>
