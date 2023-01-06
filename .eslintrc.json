@@ -40,6 +40,7 @@
     "object-curly-spacing": [
       "error",
       "always"
-    ]
+    ],
+    "no-var": "error"
   }
 }
