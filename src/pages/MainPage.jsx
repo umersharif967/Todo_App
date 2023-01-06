@@ -3,6 +3,8 @@ import Inputfield from '../components/Inputfield';
 import TodoTable from '../components/TodoTable';
 const MainPage = () => {
 
+	console.log('kk');
+
 	const [text, setText] = useState({
 		title: '',
 	});
