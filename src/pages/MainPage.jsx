@@ -10,7 +10,7 @@ const MainPage = () => {
 	const [indexxx, setIndexxx] = useState('');
 	const [change, setChange] = useState(false);
 
-
+	console.log('check todo');
 	const handleChange = (e) => {
 		let name = e.target.name;
 		let value = e.target.value;
