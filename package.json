@@ -12,7 +12,6 @@
     "husky": "^8.0.1",
     "i": "^0.3.7",
     "json-server": "^0.17.1",
-    "lint-staged": "^13.1.0",
     "npm": "^9.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
@@ -25,21 +24,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint": "eslint src -c .eslintrc.json --ext js,jsx",
+    "lint": "eslint src -c .eslintrc.json --ext js,jsx  --max-warnings=0",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
-    "test": "eslint ./ -c .eslintrc.json --max-warnings=0 && npm run build",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,json}": [
-      "npm run lint"
-    ]
   },
   "eslintConfig": {
     "extends": [

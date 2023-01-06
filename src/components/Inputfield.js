@@ -20,7 +20,7 @@ const Inputfield = (props) => {
 							variant="outline-secondary text-light btn-dark text-capitalize"
 							id="button-addon2"
 							onClick={props.editText}>
-              Edit
+										Edit
 						</Button>
 					) : (
 						<Button
