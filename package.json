@@ -10,7 +10,10 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.2",
     "husky": "^8.0.1",
+    "i": "^0.3.7",
     "json-server": "^0.17.1",
+    "lint-staged": "^13.1.0",
+    "npm": "^9.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-bootstrap-icons": "^1.10.2",
@@ -25,7 +28,8 @@
     "lint": "eslint src -c .eslintrc.json --ext js,jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
     "test": "eslint ./ -c .eslintrc.json --max-warnings=0 && npm run build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "husky": {
     "hooks": {
@@ -34,7 +38,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,json}": [
-      "lint"
+      "npm run lint"
     ]
   },
   "eslintConfig": {
