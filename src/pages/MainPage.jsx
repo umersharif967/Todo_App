@@ -43,6 +43,7 @@ const MainPage = () => {
 		setIndexxx(index);
 		setChange(true);
 	};
+	console.log(text);
 	return (
 		<div className="container">
 			<h1 className="text-center text-danger mt-3">Updated ToDo</h1>
