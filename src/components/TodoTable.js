@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TodoTable = (props) => {
-	
 	return (
 		<>
 			<div className="container mt-5">
@@ -17,7 +16,6 @@ const TodoTable = (props) => {
 						</thead>
 						<tbody>
 							{props.todo.map((elem, index) => (
-								
 								<tr key={index}>
 									<th>{index + 1}</th>
 									<td>{elem.title}</td>

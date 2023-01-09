@@ -9,7 +9,7 @@ const Inputfield = (props) => {
 				<Form.Control
 					placeholder="Enter Title here..."
 					aria-label="Recipient's username"
-					aria-describedby="basic-addon2" zxccv
+					aria-describedby="basic-addon2"
 					name="title"
 					value={props.text.title}
 					onChange={props.handleChange}
