@@ -1,10 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import  deleteTodoAction   from '../../store/actions/actionCreator';
+// import { useSelector } from 'react-redux';
 
-const TodoTable = (props) => {
+const TodoTable = ({ lists }) => {
+	const dispatch = useDispatch();
+
 	return (
 		<>
 			<div className="container mt-5">
-				{props.todo.length > 0 && (
+				{lists.length > 0 &&(
 					<table className="table">
 						<thead>
 							<tr>
@@ -15,31 +20,26 @@ const TodoTable = (props) => {
 							</tr>
 						</thead>
 						<tbody>
-							{props.todo.map((elem, index) => (
-								<tr key={index}>
-									<th>{index + 1}</th>
-									<td>{elem.title}</td>
-									<td>
-										<button
-											onClick={() => props.editOnClick(index)}
-											className="border-0"
-										>
-											<i className="bi bi-pencil-square"></i>
-										</button>
-									</td>
-									<td>
-										<button
-											onClick={() => props.deleteOnClick(index)}
-											className="border-0"
-										>
-											<i className="bi bi-x-square"></i>
-										</button>
-									</td>
-								</tr>
-							))}
+							{lists.map((todos,index)=>{
+								return (<tr key={todos.id}>
+							   <th>{index}</th>
+								 <td>{todos.data}</td>
+							   <td>
+								  <button className="border-0">
+									 <i className="bi bi-pencil-square"></i>
+								  </button>
+							   </td>
+							  <td>
+								 <button className="border-0" onClick={()=>dispatch(deleteTodoAction(index))}>
+									 <i className="bi bi-x-square"></i>
+								 </button>
+							  </td>
+						   </tr>)
+								;})}
 						</tbody>
 					</table>
 				)}
+				
 			</div>
 		</>
 	);

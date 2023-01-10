@@ -1,8 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useDispatch } from 'react-redux';
+import { insertTodoAction }  from '../store/actions/actionCreator';
 
-const Inputfield = (props) => {
+const Inputfield = ({ text,setText }) => {
+	const dispatch = useDispatch();
 	return (
 		<>
 			<div className="container w-25 m-auto mt-5" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -11,26 +14,17 @@ const Inputfield = (props) => {
 					aria-label="Recipient's username"
 					aria-describedby="basic-addon2"
 					name="title"
-					value={props.text.title}
-					onChange={props.handleChange}
+					value={text}
+					onChange={(e) => setText(e.target.value)}
 				/>
 				<div className="ms-2">
-					{props.change ? (
-						<Button
-							variant="outline-secondary text-light btn-dark text-capitalize"
-							id="button-addon2"
-							onClick={props.editText}>
-                  Edit
-						</Button>
-					) : (
-						<Button
-							variant="outline-secondary text-light btn-dark text-capitalize"
-							id="button-addon2"
-							onClick={props.addText}
-						>
-                  save
-						</Button>
-					)}
+					<Button
+						variant="outline-secondary text-light btn-dark text-capitalize"
+						id="button-addon2"
+						 onClick={()=>dispatch(insertTodoAction(text),setText('')) } 
+						 >
+            save
+					</Button>	
 				</div>
 			</div>
 		</>
