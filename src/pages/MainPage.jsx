@@ -12,7 +12,7 @@ const MainPage = () => {
 	return (
 		<div className="container">
 			<h1 className="text-center text-danger mt-3"> Todo</h1>
-			<Inputfield setText={setText} text= {text} lists={lists} index_Of_Editable={index_Of_Editable} setIndex_Of_Editable={setIndex_Of_Editable}/>
+			<Inputfield setText={setText} text= {text} index_Of_Editable={index_Of_Editable} setIndex_Of_Editable={setIndex_Of_Editable}/>
 			<div className="container mt-5">
 				<TodoTable setText={setText} text= {text} lists={lists} index_Of_Editable={index_Of_Editable} setIndex_Of_Editable={setIndex_Of_Editable}/>
 			</div>

@@ -25,6 +25,16 @@ const todoReducer = (state=initialData, action)=>{
 			]
 		};
 	}
+	case 'UPDATE_TODO':{
+		const{ index,data } = action.payload;
+		 state.list.splice(index,1,{ data } );
+		return{
+			...state,
+			list:[
+				...state.list
+			]
+		};
+	}
  
 	default:
 		return state;

@@ -17,21 +17,24 @@ const Inputfield = ({ text,setText,index_Of_Editable }) => {
 					value={text}
 					onChange={(e) => setText(e.target.value)}
 				/>
+				
 				<div className="ms-2">
 					<Button
 						variant="outline-secondary text-light btn-dark text-capitalize"
 						id="button-addon2"
-						 onClick={()=>dispatch(insertTodoAction(text),setText('')) } 
-						 >
+						 	onClick={()=>dispatch(insertTodoAction(text),setText('')) } 
+					>
             save
 					</Button>
+				</div>
+				<div className="ms-2">
 					<Button
 						variant="outline-secondary text-light btn-dark text-capitalize"
 						id="button-addon2"
-						 onClick={()=>dispatch(updateTodoAction(text,index_Of_Editable),setText('')) } 
-						 >
-            edit
-					</Button>	
+				 			onClick={()=>dispatch(updateTodoAction(index_Of_Editable,text),setText('')) } 
+				 		>
+							edit
+					</Button>
 				</div>
 			</div>
 		</>
