@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import  { deleteTodoAction }   from '../store/actions/actionCreator';
 
-const TodoTable = ({ lists, setText,setIndex_Of_Editable }) => {
+const TodoTable = ({ lists, setText,setIndex_Of_Editable,setEdit }) => {
 	const dispatch = useDispatch();
 
 	return (
@@ -26,7 +26,7 @@ const TodoTable = ({ lists, setText,setIndex_Of_Editable }) => {
 										<th>{index}</th>
 										<td key = {todos.id}>{todos.data}</td>
 										<td>
-											<button className="border-0" onClick={()=>{setText(todos.data),setIndex_Of_Editable(index);}}>
+											<button className="border-0" onClick={()=>{setText(todos.data),setIndex_Of_Editable(index),setEdit(true);}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>
