@@ -32,8 +32,6 @@ const Inputfield = ({ text,setText,index_Of_Editable,setEdit,edit }) => {
 							edit
 					</Button>
 				</div>)}
-				
-				
 			</div>
 		</>
 	);
