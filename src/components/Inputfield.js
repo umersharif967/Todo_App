@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import { insertTodoAction,updateTodoAction,editState }  from '../store/actions/actionCreator';
 
-const Inputfield = ({ text,setText,index_Of_Editable, }) => {
+const Inputfield = ({ text,setText,index_Of_Editable }) => {
 	const dispatch = useDispatch();
 	return (
 		<>
@@ -14,24 +14,27 @@ const Inputfield = ({ text,setText,index_Of_Editable, }) => {
 					aria-label="Recipient's username"
 					aria-describedby="basic-addon2"
 					name="title"
-					value={text}
+					value={text} 
 					onChange={(e) => setText(e.target.value)}
 				/>
-				{dispatch(editState(true) )? (<div className="ms-2">
-					<Button
-						variant="outline-secondary text-light btn-dark text-capitalize"
+				{editState(false) ? (
+					<div className="ms-2">
+						<Button
+							variant="outline-secondary text-light btn-dark text-capitalize"
 						 	onClick={()=>dispatch(insertTodoAction(text),setText('')) } 
-					>
+						>
             save
-					</Button>
-				</div>):(<div className="ms-2">
+						</Button>
+					</div>
+				):(	<div className="ms-2">
 					<Button
 						variant="outline-secondary text-light btn-dark text-capitalize"
-				 			onClick={()=>dispatch(updateTodoAction(index_Of_Editable,text)) } 
-				 		>
-							edit
+				 onClick={()=>dispatch(updateTodoAction(index_Of_Editable,text)) } 
+			 >
+				edit
 					</Button>
 				</div>)}
+			
 			</div>
 		</>
 	);
