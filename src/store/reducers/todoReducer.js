@@ -1,6 +1,10 @@
 const initialData={
 	list:[],
+
 };
+
+
+
 const todoReducer = (state=initialData, action)=>{
 	switch (action.type) {
 	case 'INSERT_TODO':{
@@ -35,6 +39,7 @@ const todoReducer = (state=initialData, action)=>{
 			]
 		};
 	}
+	
  
 	default:
 		return state;

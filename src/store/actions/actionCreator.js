@@ -26,6 +26,14 @@ export const updateTodoAction = (index , data) => {
 		} 
 	};
 };
+export const editState = (pop) => {
+	return { 
+		type: 'edit_state',
+		payload:pop
+	};
+};
+
+
 
 
 //UMAR Follow function names pattern 
