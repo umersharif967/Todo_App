@@ -6,7 +6,7 @@ function stateReducer(state = usestates, action) {
 	switch (action.type) {
 	case ACTIONS.EDIT_STATE: {
 		const { pop } = action.payload;
-		return state === pop;
+		return { state,edit : pop };
 	}
 	default:
 		return state;

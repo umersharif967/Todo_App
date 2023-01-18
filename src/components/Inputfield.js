@@ -9,7 +9,7 @@ const Inputfield = ({ text,setText,index_Of_Editable }) => {
 		return (event.stateReducer.edit);
 	});
 	const Updated = () => {
-		dispatch(updateTodoAction(index_Of_Editable,text));
+		dispatch(updateTodoAction(index_Of_Editable,text),setText(''));
 		dispatch(editState(true));
 	};
 	return (
@@ -35,7 +35,8 @@ const Inputfield = ({ text,setText,index_Of_Editable }) => {
 				):(	<div className="ms-2">
 					<Button
 						variant="outline-secondary text-light btn-dark text-capitalize"
-				 onClick={Updated}>
+						 onClick={Updated}
+				 >
 				update
 					</Button>
 				</div>)}

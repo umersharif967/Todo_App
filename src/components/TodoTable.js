@@ -31,7 +31,7 @@ const TodoTable = ({ setText,setIndex_Of_Editable }) => {
 										<th>{INDEX}</th>
 										<td key = {TODOS.id}>{TODOS.data}</td>
 										<td>
-											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex_Of_Editable(INDEX),dispatch(editState(true));}}>
+											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex_Of_Editable(INDEX),dispatch(editState(false));}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>
