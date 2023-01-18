@@ -17,7 +17,7 @@ const Inputfield = ({ text,setText,index_Of_Editable }) => {
 					value={text} 
 					onChange={(e) => setText(e.target.value)}
 				/>
-				{editState(false) ? (
+				{editState() ? (
 					<div className="ms-2">
 						<Button
 							variant="outline-secondary text-light btn-dark text-capitalize"
