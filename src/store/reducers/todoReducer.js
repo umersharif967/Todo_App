@@ -1,3 +1,6 @@
+import { ACTIONS } from '../app.constant';
+
+
 const initialData={
 	list:[],
 
@@ -7,7 +10,7 @@ const initialData={
 
 const todoReducer = (state=initialData, action)=>{
 	switch (action.type) {
-	case 'INSERT_TODO':{
+	case ACTIONS.INSERT_TODO:{
 		const{ data, id } = action.payload;
 		return{
 			...state,
