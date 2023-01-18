@@ -17,7 +17,7 @@ export const deleteTodoAction = (index) => {
 		} 
 	};
 };
-export const updateTodoAction = (index , data) => {
+export const updateTodoAction = (index, data) => {
 	return { 
 		type: ACTIONS.UPDATE_TODO, 
 		payload:{
@@ -28,8 +28,10 @@ export const updateTodoAction = (index , data) => {
 };
 export const editState = (pop) => {
 	return { 
-		type: 'edit_state',
-		payload:pop
+		type: ACTIONS.EDIT_STATE,
+		payload:{
+			edit:pop
+		}
 	};
 };
 

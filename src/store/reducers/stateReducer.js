@@ -1,18 +1,13 @@
 const edit = true;
-
-
-
-
-const state_reducer = (state=edit, action)=>{
+const stateReducer = (state=edit, action)=>{
 	switch (action.type) {
-	case 'edit_state':{
+	case 'EDIT_STATE':{
 		const{ pop } = action.payload;
 		return state === pop;
 	}
-	
- 
 	default:
 		return state;
 	}
 };
-export default state_reducer;
+export default stateReducer;
+
