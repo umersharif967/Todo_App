@@ -1,15 +1,15 @@
 import ACTIONS from '../app.constant';
-const edit = true;
-const stateReducer = (state=edit, action)=>{
+const usestates = {
+	edit:true,
+};
+function stateReducer(state = usestates, action) {
 	switch (action.type) {
-	case ACTIONS.EDIT_STATE:{
-		const{ pop } = action.payload;
+	case ACTIONS.EDIT_STATE: {
+		const { pop } = action.payload;
 		return state === pop;
 	}
 	default:
 		return state;
 	}
-};
-
+}
 export default stateReducer;
-

@@ -8,6 +8,9 @@ const TodoTable = ({ setText,setIndex_Of_Editable }) => {
 	const lists = useSelector((event)=>{
 		return (event.todoReducer.list);
 	});
+	// const EDITSTATE = useSelector((event)=>{
+	// 	return (event.stateReducer.edit);
+	// });
 	return (
 		<>
 			<div className="container mt-5">
@@ -28,7 +31,7 @@ const TodoTable = ({ setText,setIndex_Of_Editable }) => {
 										<th>{INDEX}</th>
 										<td key = {TODOS.id}>{TODOS.data}</td>
 										<td>
-											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex_Of_Editable(INDEX),dispatch(editState(false));}}>
+											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex_Of_Editable(INDEX),dispatch(editState(true));}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>

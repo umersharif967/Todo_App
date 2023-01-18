@@ -3,7 +3,8 @@ const ACTIONS = {
 	DELETE_TODO: 'DELETE_TODO',
 	UPDATE_TODO: 'UPDATE_TODO',
 	EDIT_STATE:'EDIT_STATE',
-	TODOS:'TODOS'
+	SET_INDEX:'SET_INDEXs',
+	SET_TEXT:'SET_TEXT'
 
 	//UMAR Follow constants names pattern 
 

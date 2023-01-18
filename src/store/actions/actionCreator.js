@@ -30,12 +30,9 @@ export const editState = (pop) => {
 	return { 
 		type: ACTIONS.EDIT_STATE,
 		payload:{
-			edit:pop
+			pop:pop
 		}
 	};
 };
 
-
-
-
-//UMAR Follow function names pattern 
+//UMAR Follow function names pattern
