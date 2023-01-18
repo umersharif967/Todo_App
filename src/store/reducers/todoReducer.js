@@ -1,13 +1,7 @@
-import { ACTIONS } from '../app.constant';
-
-
+import ACTIONS from '../app.constant';
 const initialData={
 	list:[],
-
 };
-
-
-
 const todoReducer = (state=initialData, action)=>{
 	switch (action.type) {
 	case ACTIONS.INSERT_TODO:{
@@ -22,7 +16,7 @@ const todoReducer = (state=initialData, action)=>{
 			]
 		};
 	}
-	case 'DELETE_TODO':{
+	case ACTIONS.DELETE_TODO:{
 		const{ index } = action.payload;
 		 state.list.splice(index,1);
 		return{
@@ -32,7 +26,7 @@ const todoReducer = (state=initialData, action)=>{
 			]
 		};
 	}
-	case 'UPDATE_TODO':{
+	case ACTIONS.UPDATE_TODO:{
 		const{ index,data } = action.payload;
 		 state.list.splice(index,1,{ data } );
 		return{
@@ -42,8 +36,6 @@ const todoReducer = (state=initialData, action)=>{
 			]
 		};
 	}
-	
- 
 	default:
 		return state;
 	}
