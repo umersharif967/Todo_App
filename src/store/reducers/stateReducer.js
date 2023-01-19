@@ -1,7 +1,8 @@
 import ACTIONS from '../app.constant';
 const usestates = {
 	edit:true,
-	index:''
+	index:'',
+	// text:'abc'
 };
 function stateReducer(state = usestates, action) {
 	switch (action.type) {
@@ -13,6 +14,10 @@ function stateReducer(state = usestates, action) {
 		const { index } = action.payload;
 		return { state,index : index };
 	}
+	// case ACTIONS.SET_TEXT: {
+	// 	const { input } = action.payload;
+	// 	return { state,text : input };
+	// }
 	default:
 		return state;
 	}
