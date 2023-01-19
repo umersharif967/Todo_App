@@ -27,7 +27,7 @@ const TodoTable = ({ setText }) => {
 									<tr key = {todos.id}>
 										<th>{index}</th>
 										<td key = {todos.id}>{todos.data}</td>
-										<td>{index}
+										<td>
 											<button className="border-0" onClick={()=>{setText(todos.data),dispatch(editState(false)),dispatch(setIndex(index));}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
