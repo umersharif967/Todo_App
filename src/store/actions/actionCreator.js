@@ -34,5 +34,13 @@ export const editState = (pop) => {
 		}
 	};
 };
+export const setIndex = (index) => {
+	return { 
+		type: ACTIONS.SET_INDEX,
+		payload:{
+			index:index
+		}
+	};
+};
 
 //UMAR Follow function names pattern

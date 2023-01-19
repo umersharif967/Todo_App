@@ -3,13 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch,useSelector } from 'react-redux';
 import { insertTodoAction,updateTodoAction,editState }  from '../store/actions/actionCreator';
-const Inputfield = ({ text,setText,index_Of_Editable }) => {
+const Inputfield = ({ text,setText }) => {
 	const dispatch = useDispatch();
-	const EDITSTATE = useSelector((event)=>{
+	const editStates = useSelector((event)=>{
 		return (event.stateReducer.edit);
 	});
+	const setIndexes = useSelector((event)=>{
+		return (event.stateReducer.index);
+	});
 	const Updated = () => {
-		dispatch(updateTodoAction(index_Of_Editable,text),setText(''));
+		dispatch(updateTodoAction(setIndexes,text),setText(''));
 		dispatch(editState(true));
 	};
 	return (
@@ -23,7 +26,7 @@ const Inputfield = ({ text,setText,index_Of_Editable }) => {
 					value={text} 
 					onChange={(e) => setText(e.target.value)}
 				/>
-				{EDITSTATE ? (
+				{editStates ? (
 					<div className="ms-2">
 						<Button
 							variant="outline-secondary text-light btn-dark text-capitalize"

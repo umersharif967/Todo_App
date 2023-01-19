@@ -1,16 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import  { deleteTodoAction,editState }   from '../store/actions/actionCreator';
+import  { deleteTodoAction,editState,setIndex }   from '../store/actions/actionCreator';
 
-const TodoTable = ({ setText,setIndex_Of_Editable }) => {
+const TodoTable = ({ setText }) => {
 	const dispatch = useDispatch();
 	const lists = useSelector((event)=>{
 		return (event.todoReducer.list);
 	});
-	// const EDITSTATE = useSelector((event)=>{
-	// 	return (event.stateReducer.edit);
-	// });
 	return (
 		<>
 			<div className="container mt-5">
@@ -31,7 +28,7 @@ const TodoTable = ({ setText,setIndex_Of_Editable }) => {
 										<th>{INDEX}</th>
 										<td key = {TODOS.id}>{TODOS.data}</td>
 										<td>
-											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex_Of_Editable(INDEX),dispatch(editState(false));}}>
+											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex(INDEX),dispatch(editState(false));}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>
