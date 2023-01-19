@@ -34,11 +34,11 @@ export const editState = (pop) => {
 		}
 	};
 };
-export const setIndex = (index) => {
+export const setIndex = (indexOfEdit) => {
 	return { 
 		type: ACTIONS.SET_INDEX,
 		payload:{
-			index:index
+			indexOfEdit:indexOfEdit
 		}
 	};
 };

@@ -7,8 +7,5 @@ const ACTIONS = {
 	SET_TEXT:'SET_TEXT'
 
 	//UMAR Follow constants names pattern 
-
-  
 };
-
 export default { ...ACTIONS };

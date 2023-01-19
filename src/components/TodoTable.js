@@ -8,6 +8,10 @@ const TodoTable = ({ setText }) => {
 	const lists = useSelector((event)=>{
 		return (event.todoReducer.list);
 	});
+	// const index = useSelector((event)=>{
+	// 	return(event.stateReducer.index);
+	// });
+	// console.log(index);
 	return (
 		<>
 			<div className="container mt-5">
@@ -22,19 +26,19 @@ const TodoTable = ({ setText }) => {
 							</tr>
 						</thead>
 						<tbody>
-							{lists.map((TODOS,INDEX)=>{
+							{lists.map((todos,index)=>{
 								return (
-									<tr key = {TODOS.id}>
-										<th>{INDEX}</th>
-										<td key = {TODOS.id}>{TODOS.data}</td>
-										<td>
-											<button className="border-0" onClick={()=>{setText(TODOS.data),setIndex(INDEX),dispatch(editState(false));}}>
+									<tr key = {todos.id}>
+										<th>{index}</th>
+										<td key = {todos.id}>{todos.data}</td>
+										<td>{index}
+											<button className="border-0" onClick={()=>{setText(todos.data),dispatch(editState(false)),dispatch(setIndex(index));}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>
 										<td>
 											<button className="border-0" 
-												onClick={()=>dispatch(deleteTodoAction(INDEX))}
+												onClick={()=>dispatch(deleteTodoAction(index))}
 											>
 												<i className="bi bi-x-square"></i>
 											</button>

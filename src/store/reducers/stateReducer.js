@@ -11,8 +11,8 @@ function stateReducer(state = usestates, action) {
 		return { state,edit : pop };
 	}
 	case ACTIONS.SET_INDEX: {
-		const { index } = action.payload;
-		return { state,index : index };
+		const { indexOfEdit } = action.payload;
+		return { state,index : indexOfEdit };
 	}
 	// case ACTIONS.SET_TEXT: {
 	// 	const { input } = action.payload;
