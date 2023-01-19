@@ -2,7 +2,6 @@ import ACTIONS from '../app.constant';
 const usestates = {
 	edit:true,
 	index:'',
-	// text:'abc'
 };
 function stateReducer(state = usestates, action) {
 	switch (action.type) {
@@ -14,10 +13,6 @@ function stateReducer(state = usestates, action) {
 		const { indexOfEdit } = action.payload;
 		return { state,index : indexOfEdit };
 	}
-	// case ACTIONS.SET_TEXT: {
-	// 	const { input } = action.payload;
-	// 	return { state,text : input };
-	// }
 	default:
 		return state;
 	}

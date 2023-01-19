@@ -8,10 +8,6 @@ const TodoTable = ({ setText }) => {
 	const lists = useSelector((event)=>{
 		return (event.todoReducer.list);
 	});
-	// const index = useSelector((event)=>{
-	// 	return(event.stateReducer.index);
-	// });
-	// console.log(index);
 	return (
 		<>
 			<div className="container mt-5">
