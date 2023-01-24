@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import  { deleteTodoAction,editState,setIndex }   from '../store/actions/actionCreator';
+import  { deleteTodoAction,editState,setIndex,setText }   from '../store/actions/actionCreator';
 
-const TodoTable = ({ setText }) => {
+const TodoTable = () => {
 	const dispatch = useDispatch();
 	const lists = useSelector((event)=>{
 		return (event.todoReducer.list);
@@ -28,7 +28,7 @@ const TodoTable = ({ setText }) => {
 										<th>{index}</th>
 										<td key = {todos.id}>{todos.data}</td>
 										<td>
-											<button className="border-0" onClick={()=>{setText(todos.data),dispatch(editState(false)),dispatch(setIndex(index));}}>
+											<button className="border-0" onClick={()=>{dispatch(setText(todos.data)),dispatch(editState(false)),dispatch(setIndex(index));}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>
@@ -44,7 +44,6 @@ const TodoTable = ({ setText }) => {
 						</tbody>
 					</table>
 				 )} 
-				
 			</div>
 		</>
 	);

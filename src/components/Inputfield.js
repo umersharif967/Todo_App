@@ -1,19 +1,27 @@
-import React from 'react';
+import React ,{ useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch,useSelector } from 'react-redux';
-import { insertTodoAction,updateTodoAction,editState }  from '../store/actions/actionCreator';
-const Inputfield = ({ text,setText }) => {
+import { insertTodoAction,updateTodoAction,editState,setText } from '../store/actions/actionCreator';
+const Inputfield = () => {
 	const dispatch = useDispatch();
-	const EDITSTATE = useSelector((event)=>{
+	const Edit_state = useSelector((event)=>{
 		return (event.stateReducer.edit);
 	});
+	const [input, setInput] = useState();
 	let index = useSelector((e)=>{
 		return(e.stateReducer.index);
 	});
 	
+	// console.log(text);
 	const Updated = () => {
-		dispatch(updateTodoAction(index,text),setText(''));
+		dispatch(updateTodoAction(index,input));
+		dispatch(setText(''));
+		dispatch(editState(true));
+	};
+	const SaveInput=(e)=>{
+		setInput(e.target.value);
+		dispatch(setText(input));
 		dispatch(editState(true));
 	};
 	return (
@@ -24,14 +32,14 @@ const Inputfield = ({ text,setText }) => {
 					aria-label="Recipient's username"
 					aria-describedby="basic-addon2"
 					name="title"
-					value={text} 
-					onChange={(e) => setText(e.target.value)}
+					value={input} 
+					onChange={SaveInput}
 				/>
-				{EDITSTATE ? (
+				{Edit_state ? (
 					<div className="ms-2">
 						<Button
 							variant="outline-secondary text-light btn-dark text-capitalize"
-						 	onClick={()=>{dispatch(insertTodoAction(text),setText(''));} } 
+						 	onClick={()=>{dispatch(insertTodoAction(input)),setInput('');} } 
 						>
             save
 						</Button>

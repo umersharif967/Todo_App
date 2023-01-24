@@ -42,5 +42,12 @@ export const setIndex = (indexOfEdit) => {
 		}
 	};
 };
-
+export const setText = (text) => {
+	return { 
+		type: ACTIONS.SET_INDEX,
+		payload:{
+			text:text
+		}
+	};
+};
 //UMAR Follow function names pattern
