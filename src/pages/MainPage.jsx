@@ -1,15 +1,15 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import Inputfield from '../components/Inputfield';
 import TodoTable from '../components/TodoTable';
 
 const MainPage = () => {
-	// const [text, setText] = useState('');
+	const [text, setText] = useState('');
 	return (
 		<div className="container">
 			{/* <h1 className="text-center text-danger mt-3"> Todo</h1> */}
-			<Inputfield  />
+			<Inputfield  setText={setText} text={text}/>
 			<div className="container mt-5">
-				<TodoTable />
+				<TodoTable setText={setText}/>
 			</div>
 		</div>
 	);

@@ -14,10 +14,6 @@ function stateReducer(state = usestates, action) {
 		const { indexOfEdit } = action.payload;
 		return { state,index : indexOfEdit };
 	}
-	case ACTIONS.SET_TEXT: {
-		const { text } = action.payload;
-		return { state,text :[ text] };
-	}
 	default:
 		return state;
 	}
