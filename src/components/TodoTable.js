@@ -1,6 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import  { deleteTodoAction,editState,setIndex }   from '../store/actions/actionCreator';
 
 const TodoTable = ({ setText }) => {
@@ -26,9 +25,9 @@ const TodoTable = ({ setText }) => {
 								return (
 									<tr key = {todos.id}>
 										<th>{index}</th>
-										<td key = {todos.id}>{todos.data}</td>
+										<td>{todos.data}</td>
 										<td>
-											<button className="border-0" onClick={()=>{setText(todos.data),dispatch(editState(false)),dispatch(setIndex(index));}}>
+											<button className="border-0" onClick={()=>{dispatch(editState(false)),dispatch(setIndex(index)),setText(todos.data);}}>
 												<i className="bi bi-pencil-square"></i>
 											</button>
 										</td>

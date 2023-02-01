@@ -16,6 +16,7 @@ const todoReducer = (state=initialData, action)=>{
 			]
 		};
 	}
+	
 	case ACTIONS.DELETE_TODO:{
 		const{ index } = action.payload;
 		 state.list.splice(index,1);

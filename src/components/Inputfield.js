@@ -1,26 +1,33 @@
-import React ,{ useState } from 'react';
+import React, { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useDispatch,useSelector } from 'react-redux';
-import { insertTodoAction,updateTodoAction,editState } from '../store/actions/actionCreator';
-const Inputfield = ({ text,setText }) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { insertTodoAction, updateTodoAction, editState } from '../store/actions/actionCreator';
+const Inputfield = ({ setText, text }) => {
+	const getInputData = useRef();
 	const dispatch = useDispatch();
-	const Edit_state = useSelector((event)=>{
-		return (event.stateReducer.edit);
+
+	const Edit_state = useSelector((e) => {
+		return (e.stateReducer.edit);
 	});
-	// const [input, setInput] = useState();
-	let index = useSelector((e)=>{
-		return(e.stateReducer.index);
-	});
-	// const text = useSelector((e)=>{
-	// 	return(e.stateReducer.text);
+	// let text = useSelector((e) => {
+	// 	return (e.stateReducer.text);
 	// });
-	
-	// console.log(text);
-	const Updated = () => {
-		dispatch(updateTodoAction(index,text));
-		(setText(''));
+	let index = useSelector((e) => {
+		return (e.stateReducer.index);
+	});
+	const getInputValue = () => {
+		setText(getInputData.current.value);
+	};
+	const onUpdate = () => {
+		dispatch(updateTodoAction(index, text));
+		setText(getInputData.current.value = '');
 		dispatch(editState(true));
+	};
+	const onSave = () => {
+		dispatch(insertTodoAction(text));
+		setText(getInputData.current.value = '');
+
 	};
 	return (
 		<>
@@ -29,25 +36,25 @@ const Inputfield = ({ text,setText }) => {
 					placeholder="Enter Title here..."
 					aria-label="Recipient's username"
 					aria-describedby="basic-addon2"
+					ref={getInputData}
 					name="title"
-					value={text} 
-					onChange={(e)=>{setText(e.target.value);}}
+					value={text}
+					onChange={getInputValue}
 				/>
 				{Edit_state ? (
 					<div className="ms-2">
 						<Button
 							variant="outline-secondary text-light btn-dark text-capitalize"
-						 	onClick={()=>{dispatch(insertTodoAction(text)),setText('');} } 
+							onClick={onSave}
 						>
-            save
+							save
 						</Button>
 					</div>
-				):(	<div className="ms-2">
+				) : (<div className="ms-2">
 					<Button
 						variant="outline-secondary text-light btn-dark text-capitalize"
-						 onClick={Updated}
-				 >
-				update
+						onClick={onUpdate}>
+						update
 					</Button>
 				</div>)}
 			</div>
