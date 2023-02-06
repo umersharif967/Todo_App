@@ -2,11 +2,12 @@ import React, { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
-import { insertTodoAction, updateTodoAction, editState } from '../store/actions/actionCreator';
-const Inputfield = ({ setText, text }) => {
+import { insertTodoAction, updateTodoAction, editState, inputText } from '../store/actions/actionCreator';
+const Inputfield = () => {
 	const getInputData = useRef();
 	const dispatch = useDispatch();
 
+	const text = useSelector((state)=> state.stateReducer.text);
 	const Edit_state = useSelector((e) => {
 		return (e.stateReducer.edit);
 	});
@@ -16,19 +17,22 @@ const Inputfield = ({ setText, text }) => {
 	let index = useSelector((e) => {
 		return (e.stateReducer.index);
 	});
-	const getInputValue = () => {
-		setText(getInputData.current.value);
+
+	const getInputValue = (e) => {
+		dispatch(inputText(e.target.value));
 	};
+
 	const onUpdate = () => {
 		dispatch(updateTodoAction(index, text));
-		setText(getInputData.current.value = '');
+		// setText(getInputData.current.value = '');
 		dispatch(editState(true));
 	};
+	
 	const onSave = () => {
 		dispatch(insertTodoAction(text));
-		setText(getInputData.current.value = '');
-
+		dispatch(inputText(''));
 	};
+	
 	return (
 		<>
 			<div className="container w-25 m-auto mt-5" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -39,9 +43,9 @@ const Inputfield = ({ setText, text }) => {
 					ref={getInputData}
 					name="title"
 					value={text}
-					onChange={getInputValue}
+					onChange={(e)=>getInputValue(e)}
 				/>
-				{Edit_state ? (
+				{!Edit_state ? (
 					<div className="ms-2">
 						<Button
 							variant="outline-secondary text-light btn-dark text-capitalize"
