@@ -6,13 +6,13 @@ const usestates = {
 };
 function stateReducer(state = usestates, action) {
 	switch (action.type) {
-	case ACTIONS.EDIT_STATE: {
-		const { pop } = action.payload;
-		return { state,edit : pop };
+	case ACTIONS.SET_EDIT: {
+		const { edit } = action.payload;
+		return { ...state,edit : edit };
 	}
 	case ACTIONS.SET_INDEX: {
 		const { indexOfEdit } = action.payload;
-		return { state,index : indexOfEdit };
+		return { ...state,index : indexOfEdit };
 	}
 	case ACTIONS.SET_TEXT: {
 		const { text } = action.payload;

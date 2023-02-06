@@ -26,11 +26,11 @@ export const updateTodoAction = (index, data) => {
 		} 
 	};
 };
-export const editState = (pop) => {
+export const setEdit = (edit) => {
 	return { 
-		type: ACTIONS.EDIT_STATE,
+		type: ACTIONS.SET_EDIT,
 		payload:{
-			pop:pop
+			edit
 		}
 	};
 };
@@ -38,7 +38,7 @@ export const setIndex = (indexOfEdit) => {
 	return { 
 		type: ACTIONS.SET_INDEX,
 		payload:{
-			indexOfEdit:indexOfEdit
+			indexOfEdit
 		}
 	};
 };

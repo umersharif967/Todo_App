@@ -2,18 +2,16 @@ import React, { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
-import { insertTodoAction, updateTodoAction, editState, inputText } from '../store/actions/actionCreator';
+import { insertTodoAction, updateTodoAction, setEdit, inputText } from '../store/actions/actionCreator';
 const Inputfield = () => {
 	const getInputData = useRef();
 	const dispatch = useDispatch();
 
-	const text = useSelector((state)=> state.stateReducer.text);
-	const Edit_state = useSelector((e) => {
+	const text = useSelector((state) => state.stateReducer.text);
+	const edit = useSelector((e) => {
 		return (e.stateReducer.edit);
 	});
-	// let text = useSelector((e) => {
-	// 	return (e.stateReducer.text);
-	// });
+
 	let index = useSelector((e) => {
 		return (e.stateReducer.index);
 	});
@@ -24,15 +22,15 @@ const Inputfield = () => {
 
 	const onUpdate = () => {
 		dispatch(updateTodoAction(index, text));
-		// setText(getInputData.current.value = '');
-		dispatch(editState(true));
+		dispatch(inputText(''));
+		dispatch(setEdit(false));
 	};
-	
+
 	const onSave = () => {
 		dispatch(insertTodoAction(text));
 		dispatch(inputText(''));
 	};
-	
+
 	return (
 		<>
 			<div className="container w-25 m-auto mt-5" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -43,9 +41,9 @@ const Inputfield = () => {
 					ref={getInputData}
 					name="title"
 					value={text}
-					onChange={(e)=>getInputValue(e)}
+					onChange={(e) => getInputValue(e)}
 				/>
-				{!Edit_state ? (
+				{!edit ? (
 					<div className="ms-2">
 						<Button
 							variant="outline-secondary text-light btn-dark text-capitalize"
