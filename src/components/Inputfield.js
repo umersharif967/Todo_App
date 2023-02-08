@@ -8,7 +8,7 @@ const Inputfield = () => {
 	const dispatch = useDispatch();
 
 	const text = useSelector((state) => state.stateReducer.text);
-	const edit = useSelector((e) => {
+	const edit = useSelector( (e) => {
 		return (e.stateReducer.edit);
 	});
 
