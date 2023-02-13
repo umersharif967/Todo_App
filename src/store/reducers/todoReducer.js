@@ -5,13 +5,13 @@ const initialData={
 const todoReducer = (state=initialData, action)=>{
 	switch (action.type) {
 	case ACTIONS.INSERT_TODO:{
-		const{ data, id } = action.payload;
+		const{ title, id } = action.payload;
 		return{
 			...state,
 			list:[
 				...state.list,{
 					id:id,
-					data:data
+					title:title
 				}
 			]
 		};
@@ -28,8 +28,8 @@ const todoReducer = (state=initialData, action)=>{
 		};
 	}
 	case ACTIONS.UPDATE_TODO:{
-		const{ index,data } = action.payload;
-		 state.list.splice(index,1,{ data } );
+		const{ index,title } = action.payload;
+		 state.list.splice(index,1,{ title } );
 		return{
 			...state,
 			list:[

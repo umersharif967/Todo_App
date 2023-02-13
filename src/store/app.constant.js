@@ -4,7 +4,8 @@ const ACTIONS = {
 	UPDATE_TODO: 'UPDATE_TODO',
 	SET_EDIT: 'SET_EDIT',
 	SET_INDEX: 'SET_INDEX',
-	SET_TEXT: 'SET_TEXT'
+	SET_TEXT: 'SET_TEXT',
+	FETCH_DATA:'FETCH_DATA'
 
 	//UMAR Follow constants names pattern 
 };

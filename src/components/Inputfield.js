@@ -6,6 +6,7 @@ import { insertTodoAction, updateTodoAction, setEdit, inputText } from '../store
 const Inputfield = () => {
 	const getInputData = useRef();
 	const dispatch = useDispatch();
+	
 
 	const text = useSelector((state) => state.stateReducer.text);
 	const edit = useSelector( (e) => {

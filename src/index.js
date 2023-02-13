@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import  MainPage  from './pages/MainPage';
 import store from './store/store';
 import { Provider } from 'react-redux';
+// import ReduxThunk from 'redux-thunk';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,10 +1,10 @@
 import ACTIONS from '../app.constant';
 
-export const insertTodoAction = (data) => {
+export const insertTodoAction = (title) => {
 	return { 
 		type: ACTIONS.INSERT_TODO, 
 		payload:{
-			data:data,
+			title:title,
 			id: new Date().getTime().toString()
 		} 
 	};
@@ -17,12 +17,12 @@ export const deleteTodoAction = (index) => {
 		} 
 	};
 };
-export const updateTodoAction = (index, data) => {
+export const updateTodoAction = (index, title) => {
 	return { 
 		type: ACTIONS.UPDATE_TODO, 
 		payload:{
 			index:index,
-			data:data
+			title:title
 		} 
 	};
 };
@@ -49,4 +49,22 @@ export const inputText = (text) => {
 			text
 		}
 	};
+};
+export const fetch_data = () => {
+	// return async (dispatch)=>{
+	// 	const response = fetch('https://jsonplaceholder.typicode.com/todos').then((dataJson)=>{
+	// 		 dataJson.json();
+	//then((data)=>{
+	// console.log('data:',data);
+	// });
+	// });
+// 	const data = response.JSON.stringify();
+// 	dispatch({ 
+// 		type: ACTIONS.FETCH_DATA,
+// 		payload:{
+// 			data
+// 		}
+// 	});
+// };
+// };
 };
